@@ -2,8 +2,7 @@ import com.test.pipeline.ConstantsGeneric
 
 def call(String buildStyle) {
     pipeline {
-        // agent any
-        node {
+         agent any
 
             stage('Main') {
                 step {
@@ -28,6 +27,5 @@ def call(String buildStyle) {
         //         sendNotifications currentBuild.result
         //     }
         // }
-        }
     }
 }
