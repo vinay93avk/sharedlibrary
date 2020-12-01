@@ -3,14 +3,12 @@ import com.test.pipeline.ConstantsGeneric
 def call(String buildStyle) {
     pipeline {
         // agent any
+        agent { docker 'maven:3-alpine' }
 
             stage('Main') {
                 step {
                     script {
                         config['buildStyle'] = buildStyle
-                        stage('Checkout') {
-                            checkout scm
-                        }
                         config['gitBranchRaw'] = GIT_BRANCH
                         config['gitBranch'] = GIT_BRANCH.replaceAll('\\/','-').trim()
                         config['gitCommitId'] = GIT_COMMIT
