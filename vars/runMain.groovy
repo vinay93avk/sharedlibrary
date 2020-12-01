@@ -2,12 +2,17 @@ import com.test.pipeline.ConstantsGeneric
 
 def call(String buildStyle) {
     pipeline {
-         agent any
+        agent any
 
+        stages {
             stage('Main') {
-                step {
+                steps {
                     script {
+                        def project = buildStyle.split("-")
                         config['buildStyle'] = buildStyle
+                        stage('Checkout') {
+                            checkout scm
+                        }
                         config['gitBranchRaw'] = GIT_BRANCH
                         config['gitBranch'] = GIT_BRANCH.replaceAll('\\/','-').trim()
                         config['gitCommitId'] = GIT_COMMIT
@@ -21,6 +26,7 @@ def call(String buildStyle) {
                     }
                 }
             }
+        }
 
         // post {
         //     always {
