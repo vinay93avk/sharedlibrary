@@ -4,7 +4,6 @@ def call(String buildStyle) {
     pipeline {
         // agent any
 
-        stages {
             stage('Main') {
                 steps {
                     script {
@@ -26,7 +25,6 @@ def call(String buildStyle) {
                     }
                 }
             }
-        }
 
         // post {
         //     always {
