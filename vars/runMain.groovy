@@ -8,11 +8,7 @@ def call(String buildStyle) {
             stage('Main') {
                 steps {
                     script {
-                        def project = buildStyle.split("-")
                         config['buildStyle'] = buildStyle
-                        stage('Checkout') {
-                            checkout scm
-                        }
                         config['gitBranchRaw'] = GIT_BRANCH
                         config['gitBranch'] = GIT_BRANCH.replaceAll('\\/','-').trim()
                         config['gitCommitId'] = GIT_COMMIT
