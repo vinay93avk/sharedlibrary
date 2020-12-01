@@ -5,7 +5,7 @@ def call(String buildStyle) {
         // agent any
 
             stage('Main') {
-                steps {
+                step {
                     script {
                         def project = buildStyle.split("-")
                         config['buildStyle'] = buildStyle
