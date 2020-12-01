@@ -3,7 +3,7 @@ import com.test.pipeline.ConstantsGeneric
 def call(String buildStyle) {
     pipeline {
         // agent any
-        agent { docker 'maven:3-alpine' }
+        node {
 
             stage('Main') {
                 step {
@@ -28,5 +28,6 @@ def call(String buildStyle) {
         //         sendNotifications currentBuild.result
         //     }
         // }
+        }
     }
 }
