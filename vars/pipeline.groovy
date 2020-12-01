@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 import com.test.pipeline.ConstantsGeneric
 
-def call(String buildStyle, Map config=[:]) {
+def call(String buildStyle) {
 
 } 
 
