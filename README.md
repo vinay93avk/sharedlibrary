@@ -1,2 +1,1 @@
-# sharedlibrary
-sharedlibrary. 
+# shared-ssmd-library
